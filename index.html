@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <title>Booku</title>
+</head>
+<body>
+
+    <header class="nav-flex">
+        <h1>BOOKU</h1>
+        <nav>
+          <ul>
+            <li><a href="#" onclick="scrollToCari()">CARI BUKU</a></li>
+            <li><a href="#" onclick="scrollToDaftar()">DAFTAR BUKU</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+
+      <img src="asset/nav-bg.png" class="img-bg">
+
+      <div class="content1">
+        <div style="padding-left: 100px;">
+        <p>BOOKU</p>
+        <h2 class="jdl">Pantau kegiatan membacamu setiap saat</h2><br>
+        <button id="lihatButton">Lihat</button>
+        </div>
+        <img src="asset/shelves.svg" class="shelves">
+      </div>
+
+      <main  id="daftar">
+        <div class="contentflex">
+        <section class="input_section">
+          <h2>Masukkan Buku Baru</h2>
+          <form id="inputBook">
+            <div class="input">
+              <label for="inputBookTitle">Judul</label>
+              <input id="inputBookTitle" type="text" required>
+            </div>
+            <div class="input">
+              <label for="inputBookAuthor">Penulis</label>
+              <input id="inputBookAuthor" type="text" required>
+            </div>
+            <div class="input">
+              <label for="inputBookYear">Tahun</label>
+              <input id="inputBookYear" type="number" required>
+            </div>
+            <div class="input_inline">
+              <label for="inputBookIsComplete">Selesai dibaca</label>
+              <input id="inputBookIsComplete" type="checkbox">
+            </div>
+            <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
+          </form>
+        </section>
+        <img src="asset/add.svg" style="width: 500px;">
+        </div>
+
+        <div class="contentflex" style="background-color: rgb(171, 231, 248); padding: 50px;" id="cari"> 
+        <img src="asset/search.svg" class="searchsvg">
+
+        <section>
+          <h2>Cari Buku :</h2>
+          <form id="searchBook">
+            <label for="searchBookTitle">Judul</label>
+            <input id="searchBookTitle" type="text">
+            <button id="searchSubmit" type="submit">Cari</button>
+          </form>
+        </section>
+        <div id="searchResult" class="book_list"></div>
+        </div>
+        
+        <section class="book_shelf" id="rak">
+          <h2>Belum selesai dibaca</h2>
+          
+          <div id="incompleteBookshelfList" class="book_list">
+          </div>
+        </section>
+        
+        <section class="book_shelf">
+          <h2>Selesai dibaca</h2>
+          
+          <div id="completeBookshelfList" class="book_list">
+          </div>
+        </section>
+      </main>
+      
+      <div id="customModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Konfirmasi</h2><br>
+          <p>Apakah Anda yakin ingin menghapus buku ini?</p><br>
+          <button class="confirm" onclick="confirmAction()">Hapus</button>
+        </div>
+      </div>
+
+      <div id="customModalConfirm" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModalConfirm()">&times;</span>
+          <h2>Sukses</h2><br>
+          <p>Buku sudah ditambahkan ke daftar!</p><br>
+          <button class="confirm" onclick="confirmActionConfirm()">Ok</button>
+        </div>
+      </div>
+
+      <div id="customModalSearchNull" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModalSearchNull()">&times;</span>
+          <h2>Informasi</h2><br>
+          <p>Masukkan judul kedalam kolom pencarian.</p><br>
+          <button class="confirm" onclick="confirmActionSearchNull()">Ok</button>
+        </div>
+      </div>
+
+      <div id="customModalNotFound" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModalNotFound()">&times;</span>
+          <h2>Informasi</h2><br>
+          <p>Maaf, buku yang dicari tidak ditemukan.</p><br>
+          <button class="confirm" onclick="confirmActionNotFound()">Ok</button>
+        </div>
+      </div>
+      
+      
+      <script src="main.js"></script>
+</body>
+</html>
